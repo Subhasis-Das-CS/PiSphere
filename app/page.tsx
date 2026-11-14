@@ -1,69 +1,67 @@
-import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+    <main className="relative min-h-screen bg-[#05050f] flex flex-col items-center justify-center overflow-hidden text-white font-sans">
+      
+      {/* --- Dynamic Background Graphics --- */}
+      {/* Purple Glowing Orb */}
+      <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-purple-700 rounded-full mix-blend-screen filter blur-[128px] opacity-40 animate-pulse" />
+      {/* Blue Glowing Orb */}
+      <div className="absolute bottom-[-10%] right-[-5%] w-[30rem] h-[30rem] bg-blue-800 rounded-full mix-blend-screen filter blur-[150px] opacity-30" />
+      {/* Center Subtle Deep Blue Orb */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[20rem] bg-indigo-900 rounded-full mix-blend-screen filter blur-[150px] opacity-20" />
+
+      {/* --- Main Content Container --- */}
+      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl space-y-6">
+        
+        {/* Hero Title Block */}
+        <div className="relative flex flex-col items-center">
+          <h1 className="text-6xl md:text-8xl font-extrabold tracking-tight drop-shadow-2xl">
+            Welcome to <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500">
+              PiSphere
+            </span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+          
+          {/* Branding - Bottom Right of the Title */}
+          <div className="w-full flex justify-end mt-2 pr-2">
+            <p className="text-xs md:text-sm font-medium tracking-wider text-gray-400 opacity-70">
+              By <span className="text-purple-400 font-semibold">Pi and PIxels</span> • Subhasis Das
+            </p>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        {/* Description */}
+        <p className="text-lg md:text-xl text-gray-400 max-w-2xl leading-relaxed mt-4">
+          The ultimate digital learning ecosystem. Master your curriculum with dynamic mock tests, topic-wise MCQs, and collaborate instantly in a thriving student community.
+        </p>
+        
+        {/* Call to Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-6 w-full justify-center mt-10 pt-4">
+          
+          {/* Login Button (Glassmorphism Outline) */}
+          <Link 
+            href="/login" 
+            className="group relative px-8 py-3.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-gray-200 font-semibold text-lg hover:bg-white/10 hover:border-purple-500/50 hover:text-white hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-300"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Login to Account
+          </Link>
+          
+          {/* Sign Up Button (Glowing Gradient) */}
+          <Link 
+            href="/signup" 
+            className="group relative px-8 py-3.5 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-lg hover:opacity-90 hover:shadow-[0_0_30px_rgba(147,51,234,0.6)] hover:scale-105 transition-all duration-300"
           >
-            Documentation
-          </a>
+            Create an Account
+          </Link>
+          
         </div>
-      </main>
-    </div>
+      </div>
+
+      {/* Decorative Grid Overlay for texture */}
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
+      
+    </main>
   );
 }
